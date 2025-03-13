@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include "Servo.h"
 #include "Point.h"
 
 #ifndef ROBOLEG_H
@@ -20,18 +21,18 @@ struct Options {
 
 class RoboLeg {
   public:
-     RoboLeg(const Options& options)
-        : servoPin1(options.servoPin1), servoPin2(options.servoPin2), servoPin3(options.servoPin3),
-          h(options.h), a(options.a), b(options.b), c(options.c), pointer(options.pointer), origin(0) {}
-
+    RoboLeg(const Options& options);
     static String getSchema();
 
+    void moveServo(int servoNumber, int targetAngle);
     
   private: 
-    int servoPin1, servoPin2, servoPin3;
     int h, a, b, c;
     Point origin;
     Point pointer;
+    Servo servo1;
+    Servo servo2;
+    Servo servo3;
 };
 
 #endif
