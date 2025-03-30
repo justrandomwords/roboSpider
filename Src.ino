@@ -1,7 +1,7 @@
 #include "RoboLeg.h"
 #include "Point.h"
 
-Options options(8, 9, 10, 5, 3, 4, 6, Point(10, 0, 0));
+Options options(8, 9, 10, 26, 38, 50, 90, Point(100, 50, 0));
 RoboLeg* roboleg;
 
 void setup() {
