@@ -29,6 +29,15 @@ void executeCommand(String command) {
       int angle = command.substring(spaceIndex + 1).toInt();
       roboleg->moveServo(servoNumber, angle);
     }
+  } else if (command.startsWith("m ")) {
+    int firstSpaceIndex = command.indexOf(' ', 2);
+    int secondSpaceIndex = command.indexOf(' ', firstSpaceIndex + 1);
+    if (firstSpaceIndex != -1 && secondSpaceIndex != -1) {
+      int x = command.substring(2, firstSpaceIndex).toInt();
+      int y = command.substring(firstSpaceIndex + 1, secondSpaceIndex).toInt();
+      int z = command.substring(secondSpaceIndex + 1).toInt();
+      roboleg->moveToPoint(Point(x, y, z));
+    }
   } else if (command == "scheme") {
     Serial.println(RoboLeg::getSchema());
   } else {
