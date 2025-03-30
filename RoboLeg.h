@@ -25,6 +25,7 @@ class RoboLeg {
     static String getSchema();
 
     void moveServo(int servoNumber, int targetAngle);
+    void moveToPoint(Point targetPoint);
     
   private: 
     int h, a, b, c;
@@ -33,6 +34,11 @@ class RoboLeg {
     Servo servo1;
     Servo servo2;
     Servo servo3;
+
+
+    float RoboLeg::RadiansToDegrees(float anglesRadians);
+    float calcAngleCosLaw(float b, float c, float d);
+    Point RoboLeg::rotateZ(Point p, float angle);
 };
 
 #endif
